@@ -17,7 +17,7 @@ export default async function Home() {
     {snippets.map((snippet)=>(
       <div key={snippet.id} className="flex items-center justify-between py-2 px-2 border border-gray-400 rounded-md my-4 bg-white ">
         <h1>{snippet.title}</h1>
-        <Link href={'/snippet/${snippet.id}'} >
+        <Link href={`/snippet/${snippet.id}`} >
         <Button variant={'link'}>View</Button>
         </Link>
       </div>
