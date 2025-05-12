@@ -5,13 +5,14 @@ import React from 'react'
 import * as action from "@/actions";
 import { notFound } from 'next/navigation';
 
-type SnippetDetailsProps = {
-    params: {id:string}
-}
+type SnipppetDetailsProps = {
+  params: Promise<{ id: string }>;
+};
 
-const SnippetDetailPage = async ({params} : SnippetDetailsProps) => {
-
-    const id = parseInt(params.id);
+const SnippetDetailPage: React.FC<SnipppetDetailsProps> = async ({
+  params,
+}) => {
+  const id = parseInt((await params).id);
     
     await new Promise((r)=> setTimeout(r, 2000))
 
@@ -49,4 +50,12 @@ const SnippetDetailPage = async ({params} : SnippetDetailsProps) => {
   )
 }
 
-export default SnippetDetailPage
+export default SnippetDetailPage;
+
+export const generateStaticParams = async ()=>{
+  const snippets = await prisma.snippet.findMany();
+
+  return snippets.map((snippet :{id: string | number})=>{
+    return{id:snippet.id.toString()}
+  })
+}
