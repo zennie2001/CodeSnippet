@@ -4,13 +4,14 @@ import { prisma } from "@/lib/prisma"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-export const saveSnippet = async(id:number, code:string)=>{
+export const saveSnippet = async(id:number, code:string, language: string)=>{
     await prisma.snippet.update({
         where:{
             id
         },
         data:{
-            code
+            code,
+            language
         }
     })
     revalidatePath(`/snippet/${id}`)
@@ -29,6 +30,7 @@ export async function createSnippet(prevState:{message:string},formData:FormData
     try {
         const title = formData.get("title")  ;
     const code = formData.get("code") ;
+    const language = formData.get("language")
 
     if(typeof title !== "string" || title.length<1){
         return{message:"Title is required"}
@@ -36,11 +38,17 @@ export async function createSnippet(prevState:{message:string},formData:FormData
      if(typeof code !== "string" || code.length<1){
         return{message:"Code is required"}
     }
+    if (typeof language !== "string" || language.length < 1) {
+      return { message: "Language is required" };
+    }
+
+
 
     await prisma.snippet.create({
       data:{
         title,
-        code
+        code,
+        language
       }
     })
     

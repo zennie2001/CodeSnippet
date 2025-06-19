@@ -120,7 +120,8 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.SnippetScalarFieldEnum = {
   id: 'id',
   title: 'title',
-  code: 'code'
+  code: 'code',
+  language: 'language'
 };
 
 exports.Prisma.SortOrder = {

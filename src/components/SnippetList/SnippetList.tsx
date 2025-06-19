@@ -4,11 +4,16 @@ import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import { GoPlus } from "react-icons/go";
 import { Button } from "../ui/button";
+import { GoDotFill } from "react-icons/go";
+import { FaRegCalendar } from "react-icons/fa";
+
+
 
 type Snippet = {
   id: number;
   title: string;
   code: string;
+  language: string | null;
   
 };
 
@@ -46,12 +51,29 @@ function SnippetList({snippets}:{snippets: Snippet[]}) {
       {filtered.map((snippet) => (
         <div
           key={snippet.id}
-          className="flex items-center justify-between py-2 px-2 border border-gray-400 rounded-md my-4 bg-white"
+          className="flex flex-col gap-4 py-2 px-2 border border-gray-400 rounded-md my-4 bg-white"
         >
-          <h1>{snippet.title}</h1>
+          <div className="flex justify-between items-center">
+          <h1 className="font-semibold text-xl">{snippet.title}</h1>
+          
           <Link href={`/snippet/${snippet.id}`}>
-            <Button variant="link">View</Button>
+            <Button variant="link" className="font-semibold text-lg">View</Button>
           </Link>
+          </div>
+
+          <div>
+            <div className="flex items-center font-light ">
+            <GoDotFill  className="text-[#3D8D7A]"/>
+
+            <p className="text-sm">{snippet.language}</p>
+          </div>
+
+          <div className="flex items-center font-light gap-1 ">
+            <FaRegCalendar  className="text-[#3D8D7A] text-sm"/>
+
+            <p className="text-sm">Updated on: {snippet.language}</p>
+          </div>
+          </div>
         </div>
       ))}
 

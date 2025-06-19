@@ -893,18 +893,21 @@ export namespace Prisma {
     id: number | null
     title: string | null
     code: string | null
+    language: string | null
   }
 
   export type SnippetMaxAggregateOutputType = {
     id: number | null
     title: string | null
     code: string | null
+    language: string | null
   }
 
   export type SnippetCountAggregateOutputType = {
     id: number
     title: number
     code: number
+    language: number
     _all: number
   }
 
@@ -921,18 +924,21 @@ export namespace Prisma {
     id?: true
     title?: true
     code?: true
+    language?: true
   }
 
   export type SnippetMaxAggregateInputType = {
     id?: true
     title?: true
     code?: true
+    language?: true
   }
 
   export type SnippetCountAggregateInputType = {
     id?: true
     title?: true
     code?: true
+    language?: true
     _all?: true
   }
 
@@ -1026,6 +1032,7 @@ export namespace Prisma {
     id: number
     title: string
     code: string
+    language: string
     _count: SnippetCountAggregateOutputType | null
     _avg: SnippetAvgAggregateOutputType | null
     _sum: SnippetSumAggregateOutputType | null
@@ -1051,27 +1058,31 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     code?: boolean
+    language?: boolean
   }, ExtArgs["result"]["snippet"]>
 
   export type SnippetSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     code?: boolean
+    language?: boolean
   }, ExtArgs["result"]["snippet"]>
 
   export type SnippetSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     code?: boolean
+    language?: boolean
   }, ExtArgs["result"]["snippet"]>
 
   export type SnippetSelectScalar = {
     id?: boolean
     title?: boolean
     code?: boolean
+    language?: boolean
   }
 
-  export type SnippetOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "code", ExtArgs["result"]["snippet"]>
+  export type SnippetOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "code" | "language", ExtArgs["result"]["snippet"]>
 
   export type $SnippetPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Snippet"
@@ -1080,6 +1091,7 @@ export namespace Prisma {
       id: number
       title: string
       code: string
+      language: string
     }, ExtArgs["result"]["snippet"]>
     composites: {}
   }
@@ -1506,6 +1518,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Snippet", 'Int'>
     readonly title: FieldRef<"Snippet", 'String'>
     readonly code: FieldRef<"Snippet", 'String'>
+    readonly language: FieldRef<"Snippet", 'String'>
   }
     
 
@@ -1884,7 +1897,8 @@ export namespace Prisma {
   export const SnippetScalarFieldEnum: {
     id: 'id',
     title: 'title',
-    code: 'code'
+    code: 'code',
+    language: 'language'
   };
 
   export type SnippetScalarFieldEnum = (typeof SnippetScalarFieldEnum)[keyof typeof SnippetScalarFieldEnum]
@@ -1934,12 +1948,14 @@ export namespace Prisma {
     id?: IntFilter<"Snippet"> | number
     title?: StringFilter<"Snippet"> | string
     code?: StringFilter<"Snippet"> | string
+    language?: StringFilter<"Snippet"> | string
   }
 
   export type SnippetOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
     code?: SortOrder
+    language?: SortOrder
   }
 
   export type SnippetWhereUniqueInput = Prisma.AtLeast<{
@@ -1949,12 +1965,14 @@ export namespace Prisma {
     NOT?: SnippetWhereInput | SnippetWhereInput[]
     title?: StringFilter<"Snippet"> | string
     code?: StringFilter<"Snippet"> | string
+    language?: StringFilter<"Snippet"> | string
   }, "id">
 
   export type SnippetOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
     code?: SortOrder
+    language?: SortOrder
     _count?: SnippetCountOrderByAggregateInput
     _avg?: SnippetAvgOrderByAggregateInput
     _max?: SnippetMaxOrderByAggregateInput
@@ -1969,45 +1987,53 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Snippet"> | number
     title?: StringWithAggregatesFilter<"Snippet"> | string
     code?: StringWithAggregatesFilter<"Snippet"> | string
+    language?: StringWithAggregatesFilter<"Snippet"> | string
   }
 
   export type SnippetCreateInput = {
     title: string
     code: string
+    language?: string
   }
 
   export type SnippetUncheckedCreateInput = {
     id?: number
     title: string
     code: string
+    language?: string
   }
 
   export type SnippetUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
   }
 
   export type SnippetUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
   }
 
   export type SnippetCreateManyInput = {
     id?: number
     title: string
     code: string
+    language?: string
   }
 
   export type SnippetUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
   }
 
   export type SnippetUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2039,6 +2065,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     code?: SortOrder
+    language?: SortOrder
   }
 
   export type SnippetAvgOrderByAggregateInput = {
@@ -2049,12 +2076,14 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     code?: SortOrder
+    language?: SortOrder
   }
 
   export type SnippetMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     code?: SortOrder
+    language?: SortOrder
   }
 
   export type SnippetSumOrderByAggregateInput = {

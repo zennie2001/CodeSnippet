@@ -8,8 +8,8 @@ import { toast} from 'react-toastify'
 
 const CreateSnippetPage = () => {
 
-  const[language, setLanguage] = useState("javascript");
-  const [code, setCode] = useState("");
+  const[language, setLanguage] = useState<string>("javascript");
+  const [code, setCode] = useState<string>("");
 
   const [state,  formAction] = useActionState(action.createSnippet, {message:""});
 
@@ -23,10 +23,12 @@ const CreateSnippetPage = () => {
 
     if(!title){
       toast.error("Title is required")
+      return;
     }
 
     if(!code){
       toast.error("Code is required")
+      return;
     }
 
     const formData = new FormData(form);
