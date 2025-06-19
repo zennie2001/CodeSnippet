@@ -30,7 +30,7 @@ const SnippetDetailPage: React.FC<SnipppetDetailsProps> = async ({
 
   return (
     
-    <div>
+    <div className='pt-6'>
       <div className='flex items-center justify-between'>
         <h1 className='text-xl font-semibold'>{snippet.title}</h1>
         <div className='flex items-center gap-2'>
@@ -42,7 +42,7 @@ const SnippetDetailPage: React.FC<SnipppetDetailsProps> = async ({
         </div>
       </div>
 
-      <pre className=' my-3 px-3 pt-3 pb-60 text-wrap bg-white rounded border-gray-400'>
+      <pre className=' my-3 px-3 pt-3 pb-60 text-wrap bg-white  border-gray-400 rounded-xl'>
         <code>{snippet.code}</code>
       </pre>
     </div>
