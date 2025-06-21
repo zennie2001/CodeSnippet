@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import { GoPlus } from "react-icons/go";
-import { Button } from "../ui/button";
 import { GoDotFill } from "react-icons/go";
 import { FaRegCalendar } from "react-icons/fa";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
@@ -68,7 +67,7 @@ function SnippetList({snippets}:{snippets: Snippet[]}) {
 
       <button
         onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
-        className="px-3 py-1 border rounded-md mb-4"
+        className="px-3 py-1 justify-center border rounded-md mb-4 hover:bg-[#3D8D7A] hover:text-white"
       >
         {showFavoritesOnly ? "Show All" : "Show Favorites"}
       </button>

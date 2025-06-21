@@ -16,10 +16,10 @@ export default async function Home(){
   
 
   return (
-   <div className="flex gap-24 -ml-12">
-    <div className="w-[20%] hidden lg:flex ">
-      <Sidebar/>
-    </div>
+   <div className="flex justify-center">
+    {/* <div className="w-[20%] hidden lg:flex ">
+      <Sidebar />
+    </div> */}
 
     <SnippetList snippets={snippets} />
     
