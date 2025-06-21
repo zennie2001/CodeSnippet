@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import { GoPlus } from "react-icons/go";
@@ -23,6 +23,21 @@ type Snippet = {
 function SnippetList({snippets}:{snippets: Snippet[]}) {
     const [query, setQuery] = useState<string>("");
     const [favorites, setFavorites] = useState<number[]>([]);
+    const [showFavoritesOnly, setShowFavoritesOnly] = useState<boolean>(false);
+
+
+
+     // Load favorites from localStorage once on mount
+        useEffect(() => {
+          const stored = localStorage.getItem("favorites");
+          if (stored) setFavorites(JSON.parse(stored));
+        }, []);
+
+        // Save favorites to localStorage whenever it changes
+        useEffect(() => {
+          localStorage.setItem("favorites", JSON.stringify(favorites));
+        }, [favorites]);
+
 
     const toggleFavorite = (id: number) => {
       setFavorites((prev) =>
@@ -30,11 +45,14 @@ function SnippetList({snippets}:{snippets: Snippet[]}) {
       );
     };
 
-  const filtered = snippets.filter((s) =>
-    s.title.toLowerCase().includes(query.toLowerCase())
-  );
+  const filtered = snippets
+    .filter((s) => s.title.toLowerCase().includes(query.toLowerCase()))
+    .filter((s) => (showFavoritesOnly ? favorites.includes(s.id) : true));
+
+
   return (
     <div className="lg:w-[65%] w-full pt-4">
+            
       <div className="text-center">
         <div className="inline-flex gap-4 items-center justify-center border border-gray-400 px-5 py-2 my-5 mx-3 rounded-3xl w-3/4 sm:w-1/2">
           <CiSearch />
@@ -47,6 +65,13 @@ function SnippetList({snippets}:{snippets: Snippet[]}) {
           />
         </div>
       </div>
+
+      <button
+        onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+        className="px-3 py-1 border rounded-md mb-4"
+      >
+        {showFavoritesOnly ? "Show All" : "Show Favorites"}
+      </button>
 
       <div className="flex items-center justify-between my-4 mx-2">
         <h1 className="text-xl font-semibold">Snippets</h1>
