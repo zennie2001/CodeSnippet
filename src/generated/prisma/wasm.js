@@ -121,7 +121,9 @@ exports.Prisma.SnippetScalarFieldEnum = {
   id: 'id',
   title: 'title',
   code: 'code',
-  language: 'language'
+  language: 'language',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {

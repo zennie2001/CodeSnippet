@@ -6,8 +6,13 @@ import { prisma } from "@/lib/prisma";
 
 export default async function Home(){
 
-  const snippets = await prisma.snippet.findMany();
+  const snippetsRaw = await prisma.snippet.findMany();
 
+  const snippets = snippetsRaw.map(s => ({
+  ...s,
+  createdAt: s.createdAt.toISOString(),
+  updatedAt: s.updatedAt.toISOString(),
+}));
   
 
   return (

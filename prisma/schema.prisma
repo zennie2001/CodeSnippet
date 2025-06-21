@@ -16,4 +16,7 @@ model Snippet{
   title String
   code String
   language  String @default("javascript") 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt @default(now())
+
 }

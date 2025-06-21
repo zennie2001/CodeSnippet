@@ -894,6 +894,8 @@ export namespace Prisma {
     title: string | null
     code: string | null
     language: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type SnippetMaxAggregateOutputType = {
@@ -901,6 +903,8 @@ export namespace Prisma {
     title: string | null
     code: string | null
     language: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type SnippetCountAggregateOutputType = {
@@ -908,6 +912,8 @@ export namespace Prisma {
     title: number
     code: number
     language: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -925,6 +931,8 @@ export namespace Prisma {
     title?: true
     code?: true
     language?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type SnippetMaxAggregateInputType = {
@@ -932,6 +940,8 @@ export namespace Prisma {
     title?: true
     code?: true
     language?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type SnippetCountAggregateInputType = {
@@ -939,6 +949,8 @@ export namespace Prisma {
     title?: true
     code?: true
     language?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -1033,6 +1045,8 @@ export namespace Prisma {
     title: string
     code: string
     language: string
+    createdAt: Date
+    updatedAt: Date
     _count: SnippetCountAggregateOutputType | null
     _avg: SnippetAvgAggregateOutputType | null
     _sum: SnippetSumAggregateOutputType | null
@@ -1059,6 +1073,8 @@ export namespace Prisma {
     title?: boolean
     code?: boolean
     language?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["snippet"]>
 
   export type SnippetSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1066,6 +1082,8 @@ export namespace Prisma {
     title?: boolean
     code?: boolean
     language?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["snippet"]>
 
   export type SnippetSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1073,6 +1091,8 @@ export namespace Prisma {
     title?: boolean
     code?: boolean
     language?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["snippet"]>
 
   export type SnippetSelectScalar = {
@@ -1080,9 +1100,11 @@ export namespace Prisma {
     title?: boolean
     code?: boolean
     language?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type SnippetOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "code" | "language", ExtArgs["result"]["snippet"]>
+  export type SnippetOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "code" | "language" | "createdAt" | "updatedAt", ExtArgs["result"]["snippet"]>
 
   export type $SnippetPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Snippet"
@@ -1092,6 +1114,8 @@ export namespace Prisma {
       title: string
       code: string
       language: string
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["snippet"]>
     composites: {}
   }
@@ -1519,6 +1543,8 @@ export namespace Prisma {
     readonly title: FieldRef<"Snippet", 'String'>
     readonly code: FieldRef<"Snippet", 'String'>
     readonly language: FieldRef<"Snippet", 'String'>
+    readonly createdAt: FieldRef<"Snippet", 'DateTime'>
+    readonly updatedAt: FieldRef<"Snippet", 'DateTime'>
   }
     
 
@@ -1898,7 +1924,9 @@ export namespace Prisma {
     id: 'id',
     title: 'title',
     code: 'code',
-    language: 'language'
+    language: 'language',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type SnippetScalarFieldEnum = (typeof SnippetScalarFieldEnum)[keyof typeof SnippetScalarFieldEnum]
@@ -1932,6 +1960,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1949,6 +1984,8 @@ export namespace Prisma {
     title?: StringFilter<"Snippet"> | string
     code?: StringFilter<"Snippet"> | string
     language?: StringFilter<"Snippet"> | string
+    createdAt?: DateTimeFilter<"Snippet"> | Date | string
+    updatedAt?: DateTimeFilter<"Snippet"> | Date | string
   }
 
   export type SnippetOrderByWithRelationInput = {
@@ -1956,6 +1993,8 @@ export namespace Prisma {
     title?: SortOrder
     code?: SortOrder
     language?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type SnippetWhereUniqueInput = Prisma.AtLeast<{
@@ -1966,6 +2005,8 @@ export namespace Prisma {
     title?: StringFilter<"Snippet"> | string
     code?: StringFilter<"Snippet"> | string
     language?: StringFilter<"Snippet"> | string
+    createdAt?: DateTimeFilter<"Snippet"> | Date | string
+    updatedAt?: DateTimeFilter<"Snippet"> | Date | string
   }, "id">
 
   export type SnippetOrderByWithAggregationInput = {
@@ -1973,6 +2014,8 @@ export namespace Prisma {
     title?: SortOrder
     code?: SortOrder
     language?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: SnippetCountOrderByAggregateInput
     _avg?: SnippetAvgOrderByAggregateInput
     _max?: SnippetMaxOrderByAggregateInput
@@ -1988,12 +2031,16 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Snippet"> | string
     code?: StringWithAggregatesFilter<"Snippet"> | string
     language?: StringWithAggregatesFilter<"Snippet"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Snippet"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Snippet"> | Date | string
   }
 
   export type SnippetCreateInput = {
     title: string
     code: string
     language?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type SnippetUncheckedCreateInput = {
@@ -2001,12 +2048,16 @@ export namespace Prisma {
     title: string
     code: string
     language?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type SnippetUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     language?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SnippetUncheckedUpdateInput = {
@@ -2014,6 +2065,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     language?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SnippetCreateManyInput = {
@@ -2021,12 +2074,16 @@ export namespace Prisma {
     title: string
     code: string
     language?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type SnippetUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     language?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SnippetUncheckedUpdateManyInput = {
@@ -2034,6 +2091,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     code?: StringFieldUpdateOperationsInput | string
     language?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2061,11 +2120,24 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type SnippetCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     code?: SortOrder
     language?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type SnippetAvgOrderByAggregateInput = {
@@ -2077,6 +2149,8 @@ export namespace Prisma {
     title?: SortOrder
     code?: SortOrder
     language?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type SnippetMinOrderByAggregateInput = {
@@ -2084,6 +2158,8 @@ export namespace Prisma {
     title?: SortOrder
     code?: SortOrder
     language?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type SnippetSumOrderByAggregateInput = {
@@ -2123,8 +2199,26 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -2158,6 +2252,17 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2202,6 +2307,20 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
 
