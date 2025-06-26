@@ -19,6 +19,14 @@ type Snippet = {
   
 };
 
+
+const formatDate = (dateStr: string) =>
+  new Date(dateStr).toLocaleDateString("en-GB", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+
 function SnippetList({snippets}:{snippets: Snippet[]}) {
     const [query, setQuery] = useState<string>("");
     const [favorites, setFavorites] = useState<number[]>([]);
@@ -118,16 +126,8 @@ function SnippetList({snippets}:{snippets: Snippet[]}) {
 
             <p className="text-sm text-gray-500">
                {snippet.updatedAt !== snippet.createdAt
-                ? `Updated on: ${new Date(snippet.updatedAt).toLocaleDateString(undefined, {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}`
-                : `Created on: ${new Date(snippet.createdAt).toLocaleDateString(undefined, {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-        })}`}
+                  ? `Updated on: ${formatDate(snippet.updatedAt)}`
+                  : `Created on: ${formatDate(snippet.createdAt)}`}
             </p>
           </div>
           </div>
