@@ -4,7 +4,12 @@ import { prisma } from "@/lib/prisma"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-export const saveSnippet = async(id:number, code:string, )=>{
+interface SaveProps {
+   id:number;
+    code:string,  
+}
+
+export const saveSnippet: React.FC<SaveProps> = async({id, code} )=>{
     await prisma.snippet.update({
         where:{
             id

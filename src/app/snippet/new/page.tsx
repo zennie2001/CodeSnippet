@@ -6,7 +6,7 @@ import * as action from "@/actions"
 import React, { useActionState,  useState } from 'react'
 import { toast} from 'react-toastify'
 
-const CreateSnippetPage = () => {
+const CreateSnippetPage: React.FC = () => {
 
   const[language, setLanguage] = useState<string>("javascript");
   const [code, setCode] = useState<string>("");

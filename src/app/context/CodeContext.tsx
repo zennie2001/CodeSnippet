@@ -7,6 +7,11 @@ type CodeContextType = {
   setFavorites: React.Dispatch<React.SetStateAction<number[]>>;
 }; 
 
+
+interface CodeContextProviderProps {
+  children: React.ReactNode;
+}
+
 export const CodeContext = createContext<CodeContextType>({
   favorites: [],
   setFavorites: () => {},
@@ -14,9 +19,7 @@ export const CodeContext = createContext<CodeContextType>({
 
 
 
-
-
-export const CodeContextProvider = ({ children }: { children: ReactNode }) => {
+export const CodeContextProvider: React.FC<CodeContextProviderProps> = (props) => {
 
     const [favorites, setFavorites] = useState<number[]>([]);
     
@@ -25,7 +28,7 @@ export const CodeContextProvider = ({ children }: { children: ReactNode }) => {
     const value={favorites, setFavorites}
   return (
     <CodeContext.Provider value={value}>
-        {children}
+        {props.children}
     </CodeContext.Provider>
   )
 }

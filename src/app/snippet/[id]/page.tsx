@@ -9,9 +9,7 @@ type SnipppetDetailsProps = {
   params: Promise<{ id: string }>;
 };
 
-const SnippetDetailPage: React.FC<SnipppetDetailsProps> = async ({
-  params,
-}) => {
+const SnippetDetailPage: React.FC<SnipppetDetailsProps> = async ({params}) => {
   const id = parseInt((await params).id);
     
     await new Promise((r)=> setTimeout(r, 2000))

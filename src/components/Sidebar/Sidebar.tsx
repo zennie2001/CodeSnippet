@@ -15,7 +15,12 @@ type Snippet = {
   
 };
 
-const Sidebar = ({snippets}:{snippets: Snippet[]}) => {
+interface SnippetProps{
+  snippets: Snippet[];
+  
+}
+
+const Sidebar: React.FC<SnippetProps> = ({snippets}) => {
   const {favorites, setFavorites} = useContext(CodeContext)
   const [showFavoritesOnly, setShowFavoritesOnly] = useState<boolean>(false);
 

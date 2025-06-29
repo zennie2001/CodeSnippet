@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import { GoPlus } from "react-icons/go";
@@ -19,6 +19,10 @@ type Snippet = {
   
 };
 
+interface SnippetProps{
+  snippets : Snippet[]
+}
+
 
 const formatDate = (dateStr: string) =>
   new Date(dateStr).toLocaleDateString("en-GB", {
@@ -27,7 +31,7 @@ const formatDate = (dateStr: string) =>
     day: "numeric",
   });
 
-function SnippetList({snippets}:{snippets: Snippet[]}) {
+const SnippetList: React.FC<SnippetProps> = ({snippets}) => {
     const [query, setQuery] = useState<string>("");
     const [favorites, setFavorites] = useState<number[]>([]);
     const [showFavoritesOnly, setShowFavoritesOnly] = useState<boolean>(false);
