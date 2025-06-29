@@ -18,7 +18,7 @@ export default async function Home(){
   return (
    <div className="flex justify-center">
     {/* <div className="w-[20%] hidden lg:flex ">
-      <Sidebar />
+      <Sidebar snippets={snippets}/>
     </div> */}
 
     <SnippetList snippets={snippets} />

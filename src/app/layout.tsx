@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import {  ToastContainer } from 'react-toastify'
+import { CodeContextProvider } from "./context/CodeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,10 +30,12 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[#A3D1C6]">
         <Header/>
+        <CodeContextProvider>
         <div className="container h-svh mx-auto p-12 pt-14">
           <ToastContainer/>
         {children}
         </div>
+        </CodeContextProvider>
         <Footer/>
       </body>
     </html>

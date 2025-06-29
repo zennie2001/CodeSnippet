@@ -6,7 +6,7 @@ import { PiBracketsCurlyBold } from "react-icons/pi";
 
 
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <div className='bg-white px-10 sm:px-12 md:px-12 py-4 shadow-md fixed w-full'>
       <div className='flex justify-between items-center'>

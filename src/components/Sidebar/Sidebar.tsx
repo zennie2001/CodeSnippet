@@ -1,9 +1,26 @@
-import React from 'react'
+"use client"
+
+import React, { useContext, useState } from 'react'
 import { FaRegRectangleList } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
+import { CodeContext } from '@/app/context/CodeContext';
+
+type Snippet = {
+  id: number;
+  title: string;
+  code: string;
+  language: string;
+  createdAt: string; // ISO string
+  updatedAt: string;
+  
+};
+
+const Sidebar = ({snippets}:{snippets: Snippet[]}) => {
+  const {favorites, setFavorites} = useContext(CodeContext)
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState<boolean>(false);
 
 
-const Sidebar = () => {
+  
   return (
     <div className='h-svh bg-[#FBFFE4] w-full shadow-md pl-10 pt-20'>
       <div >
