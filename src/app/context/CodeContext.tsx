@@ -1,6 +1,5 @@
 "use client"
-
-import React, { createContext, ReactNode, useState } from 'react'
+import React, { createContext, useState } from 'react'
 
 type CodeContextType = {
   favorites: number[];
